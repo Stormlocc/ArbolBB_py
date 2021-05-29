@@ -1,3 +1,4 @@
+from Persona import *
 # Clase arbol
 class Arbol():
 
@@ -11,25 +12,25 @@ class Arbol():
     def EstaVacio(self):
         return self.dato == None
 
-    def AgregarDato(self, dato):
+    def Agregar(self, dato):
         if(self.EstaVacio()):
             self.dato = dato
         else:
             # Determinar en que direccion se agrega
-            if(self.dato < dato):
+            if(self.dato.get_dni() < dato.get_dni()):
                 # Agregar en la derecha
                 if(self.subArbolDerecho == None):
                     self.subArbolDerecho = Arbol()
-                    self.subArbolDerecho.AgregarDato(dato)
+                    self.subArbolDerecho.Agregar(dato)
                 else:
-                    self.subArbolDerecho.AgregarDato(dato)
+                    self.subArbolDerecho.Agregar(dato)
             else:
                 # Agregar en la izquierda
                 if(self.subArbolIzquierdo == None):
                     self.subArbolIzquierdo = Arbol()
-                    self.subArbolIzquierdo.AgregarDato(dato)
+                    self.subArbolIzquierdo.Agregar(dato)
                 else:
-                    self.subArbolIzquierdo.AgregarDato(dato)
+                    self.subArbolIzquierdo.Agregar(dato)
 
     def PreOrden(self):  # Raiz - Izq - Der
         if(not(self.EstaVacio())):
